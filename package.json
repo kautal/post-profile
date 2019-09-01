@@ -1,0 +1,28 @@
+{
+  "name": "app-recruitment",
+  "version": "1.0.0",
+  "description": "for recruitment procedure",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Js",
+    "Express",
+    "Js",
+    "React",
+    "Js",
+    "MySQL"
+  ],
+  "author": "Khautal Hilmi Ramadhan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "knex": "^0.19.3",
+    "mysql": "^2.17.1"
+  }
+}
