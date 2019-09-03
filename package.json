@@ -1,10 +1,11 @@
 {
-  "name": "app-recruitment",
+  "name": "post-profile",
   "version": "1.0.0",
   "description": "for recruitment procedure",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon ./src/server.js"
   },
   "keywords": [
     "Node",
@@ -22,7 +23,9 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "joi": "^14.3.1",
     "knex": "^0.19.3",
+    "morgan": "^1.9.1",
     "mysql": "^2.17.1"
   }
 }

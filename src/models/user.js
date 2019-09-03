@@ -1,4 +1,4 @@
-const db = require('../dbconfig')
+const db = require('../config/dbconfig')
 
 const User = {
     async getAll() {
