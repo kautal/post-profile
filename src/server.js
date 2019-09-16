@@ -6,6 +6,7 @@ const morgan = require('morgan')
 
 const user = require('./routes/user')
 const employee = require('./routes/employee')
+const auth = require('./routes/auth')
 
 const app = express()
 
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
 
 app.use(urlApi, user)
 app.use(urlApi, employee)
+app.use(urlApi, auth)
 
 app.listen(port, () => {
     console.log(`Server started on port ${process.env.PORT}`)
