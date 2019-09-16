@@ -1,4 +1,20 @@
 const db = require('../config/dbconfig')
+const joi = require('joi')
+
+async function validation(body) {
+    const schema = {
+        name: joi.string().max(75).required(),
+        birthday: joi.date().required(),
+        email: joi.string().max(35).required(),
+        telp: joi.string().max(25).required(),
+        address: joi.string().required(),
+        province: joi.string().max(40).required(),
+        city: joi.string().max(40).required(),
+        stats: joi.bool().required()
+
+    }
+    return joi.validate(body, schema)
+}
 
 const Employee = {
     async getAll() {
@@ -21,19 +37,9 @@ const Employee = {
         }
     },
 
-    async getByEmail(email) {
-        try {
-            const data = await db('employees').select().where('email', email)
-            return data
-        }
-        catch(e) {
-            console.log(e)
-        }
-    },
-
     async getByName(name) {
         try {
-            const data = await db('employees').select().where('name', name)
+            const data = await db('employees').select().where('name','like', `%${name}%`)
             return data
         }
         catch(e) {
@@ -50,7 +56,8 @@ const Employee = {
                 telp: body.telp,
                 address: body.address,
                 province: body.province,
-                city: body.city
+                city: body.city,
+                stats: body.stats
             })
             return true
         }
@@ -68,7 +75,8 @@ const Employee = {
                 telp: body.telp,
                 address: body.address,
                 province: body.province,
-                city: body.city
+                city: body.city,
+                stats: body.stats
             }).where('id', id)
             return true
         }

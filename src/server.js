@@ -15,10 +15,12 @@ const port = process.env.PORT || 5001
 const urlApi = '/api'
 
 app.use(cors())
-app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(morgan('dev'))
+
+if (process.env.NODE_ENV === 'development') {
+	app.use(morgan('dev'))
+}
 
 app.get('/', (req, res) => {
     res.send(`
@@ -26,8 +28,6 @@ app.get('/', (req, res) => {
         <span>use <i>localhost:${port}/api/employee</i> to get Api employee</span>
     `)
 })
-
-console.log(process.env)
 
 app.use(urlApi, user)
 app.use(urlApi, employee)
